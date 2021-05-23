@@ -1,6 +1,5 @@
 package br.uniso.condominio.controller;
 
-
 import br.uniso.condominio.model.entity.Morador;
 import br.uniso.condominio.model.repository.MoradorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,8 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.List;
 
@@ -31,7 +28,7 @@ public class MoradorController {
     }
 
     //Gravar
-    @RequestMapping(value="/salvar", method = RequestMethod.POST)
+    @PostMapping("/salvar")
     public String gravarMorador(Morador morador){
         repository.save(morador);
         return "redirect:/listar";
