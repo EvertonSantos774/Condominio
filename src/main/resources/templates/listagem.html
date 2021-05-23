@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Morador</title>
+</head>
+<body>
+
+<form method="post" action="/condominio/salvar">
+    <label for="cpf">CPF:</label><input type="text" name="cpf" id="cpf" size="52" /><br>
+    <label for="nome">Nome:</label><input type="text" name="nome" id="nome" size="50" /><br>
+    <label for="numero_apt">Numero Apt:</label><input type="text" name="numero_apt" id="numero_apt" size="50" /><br>
+    <label for="bloco">Bloco:</label><input type="text" name="bloco" id="bloco" size="52" /><br>
+    <input type="submit">
+</form>
+
+<div th:unless = "${#lists.isEmpty(moradores)}">
+    <dl th:each="morador : ${moradores}">
+        <span th:text="${morador.cpf}"></span><br>
+        <span th:text="${morador.nome}"></span><br>
+        <span th:text="${morador.numero_apt}"></span><br>
+        <span th:text="${morador.bloco}"></span><br>
+    </dl>
+</div>
+<div th:if="${#lists.isEmpty(moradores)}">
+
+    <p>Não tem nenhum Morador !</p>
+</div>
+</body>
+</html>
