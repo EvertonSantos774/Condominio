@@ -16,22 +16,20 @@ public class MoradorController {
     @Autowired
     private MoradorRepository repository;
 
-    //Listar moradores
-    @GetMapping("/listar")
-    public String listarMorador(Model model){
-
-        List<Morador> listaMorador = repository.findAll();
-        if(listaMorador != null){
-            model.addAttribute("morador",listaMorador);
-        }
-        return "listagem";
-    }
-
     //Gravar
     @PostMapping("/salvar")
     public String gravarMorador(Morador morador){
         repository.save(morador);
-        return "redirect:/listar";
+        return "redirect:/salvar";
+    }
+
+    @GetMapping("/salvar")
+    public String salvarMorador(Model model){
+        List<Morador> salvarMorador = repository.findAll();
+        if(salvarMorador != null){
+           model.addAttribute("morador", salvarMorador);
+        }
+        return "listagem";
     }
 
 }

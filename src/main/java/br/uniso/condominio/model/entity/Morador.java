@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
+import java.util.List;
 
 @Data
 @Entity
@@ -29,5 +30,6 @@ public class Morador implements Serializable {
 
     @Column(name = "bloco", nullable = false)
     private String bloco;
+
 
 }

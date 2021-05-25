@@ -7,24 +7,25 @@
 <body>
 
 <form method="post" action="/condominio/salvar">
-    <label for="cpf">CPF:</label><input type="text" name="cpf" id="cpf" size="52" /><br>
+    <label for="cpf">CPF:</label><input type="text" name="cpf" id="cpf" size="50" /><br>
     <label for="nome">Nome:</label><input type="text" name="nome" id="nome" size="50" /><br>
-    <label for="numero_apt">Numero Apt:</label><input type="text" name="numero_apt" id="numero_apt" size="50" /><br>
-    <label for="bloco">Bloco:</label><input type="text" name="bloco" id="bloco" size="52" /><br>
+    <label for="numeroApt">NumeroApt:</label><input type="text" name="numeroApt" id="numeroApt" size="50" /><br>
+    <label for="bloco">Bloco:</label><input type="text" name="bloco" id="bloco" size="50" /><br>
     <input type="submit">
 </form>
 
-<div th:unless = "${#lists.isEmpty(moradores)}">
-    <dl th:each="morador : ${moradores}">
-        <span th:text="${morador.cpf}"></span><br>
-        <span th:text="${morador.nome}"></span><br>
-        <span th:text="${morador.numero_apt}"></span><br>
-        <span th:text="${morador.bloco}"></span><br>
+<div th:unless = "${#lists.isEmpty(morador)}">
+    <dl th:each="moradores:${morador}">
+        <span th:text="${moradores.cpf}"></span><br>
+        <span th:text="${moradores.nome}"></span><br>
+        <span th:text="${moradores.numeroApt}"></span><br>
+        <span th:text="${moradores.bloco}"></span><br>
     </dl>
 </div>
-<div th:if="${#lists.isEmpty(moradores)}">
+<div th:if="${#lists.isEmpty(morador)}">
 
     <p>Não tem nenhum Morador !</p>
+
 </div>
 </body>
 </html>
